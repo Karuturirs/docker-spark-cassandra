@@ -40,6 +40,7 @@ function init_cassandra {
 		num_tokens \
 		rpc_address \
 		start_rpc \
+		concurrent_reads \
 	; do
 		var="CASSANDRA_${yaml^^}"
 		val="${!var}"
