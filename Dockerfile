@@ -1,4 +1,6 @@
-FROM cassandra:3.11
+FROM cassandra:3.11.3
+
+RUN rm /etc/apt/sources.list.d/cassandra.list
 
 # Install OpenJDK-8
 RUN apt-get update && \
@@ -30,16 +32,16 @@ RUN 	wget -O- http://archive.apache.org/dist/spark/spark-2.2.3/spark-2.2.3-bin-h
 	cd /usr/local && ln -s spark-2.2.3-bin-hadoop2.7 spark
 
 RUN 	mkdir spark-libs && \
-	wget http://central.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.11/2.3.2/spark-cassandra-connector_2.11-2.3.2.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/com/google/guava/guava/16.0.1/guava-16.0.1.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/net/finmath/finmath-lib/3.0.14/finmath-lib-3.0.14.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/org/scalaz/scalaz-core_2.11/7.2.3/scalaz-core_2.11-7.2.3.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/org/jblas/jblas/1.2.4/jblas-1.2.4.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/org/threeten/threetenbp/1.3.4/threetenbp-1.3.4.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/com/google/code/gson/gson/2.7/gson-2.7.jar -P spark-libs && \
-	wget http://central.maven.org/maven2/com/twitter/jsr166e/1.1.0/jsr166e-1.1.0.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.11/2.3.2/spark-cassandra-connector_2.11-2.3.2.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/com/google/guava/guava/16.0.1/guava-16.0.1.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/net/finmath/finmath-lib/3.0.14/finmath-lib-3.0.14.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/org/scalaz/scalaz-core_2.11/7.2.3/scalaz-core_2.11-7.2.3.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/org/jblas/jblas/1.2.4/jblas-1.2.4.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/org/threeten/threetenbp/1.3.4/threetenbp-1.3.4.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/com/google/code/gson/gson/2.7/gson-2.7.jar -P spark-libs && \
+	wget https://repo1.maven.org/maven2/com/twitter/jsr166e/1.1.0/jsr166e-1.1.0.jar -P spark-libs && \
 	mv spark-libs/*.jar usr/local/spark/jars && \
 	rm -rf spark-libs && \
   	cd usr/local/spark/jars && \
