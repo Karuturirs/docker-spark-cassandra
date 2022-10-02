@@ -11,7 +11,7 @@ analytics-a:
     io.rancher.scheduler.affinity:host_label: api.test.common=true
   tty: true
   log_opt: {}
-  image: turbineanalytics/docker-spark-cassandra
+  image: karuturirs/docker-spark-cassandra
   links:
   - 'cassandra:'
   - 'spark-master:'
@@ -29,7 +29,7 @@ cassandra-a:
     io.rancher.scheduler.affinity:host_label: api.test.common=true
   tty: true
   log_opt: {}
-  image: turbineanalytics/docker-spark-cassandra
+  image: karuturirs/docker-spark-cassandra
   links:
   - 'cassandra:'
   - 'spark-master:'
@@ -47,7 +47,7 @@ analytics-b:
     io.rancher.scheduler.affinity:host_label: api.test.common=true
   tty: true
   log_opt: {}
-  image: turbineanalytics/docker-spark-cassandra
+  image: karuturirs/docker-spark-cassandra
   links:
   - 'cassandra:'
   - 'spark-master:'
@@ -65,7 +65,7 @@ cassandra:
     io.rancher.scheduler.affinity:host_label: api.test.common=true
   tty: true
   log_opt: {}
-  image: turbineanalytics/docker-spark-cassandra
+  image: karuturirs/docker-spark-cassandra
   links:
   - 'spark-master:'
   stdin_open: true
@@ -82,4 +82,4 @@ spark-master:
   command:
   - ./start-master.sh
   log_opt: {}
-  image: turbineanalytics/docker-spark-cassandra
+  image: karuturirs/docker-spark-cassandra

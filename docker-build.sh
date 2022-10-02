@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo docker build -t turbineanalytics/docker-spark-cassandra .
+sudo docker build -t karuturirs/docker-spark-cassandra .
