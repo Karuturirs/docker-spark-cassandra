@@ -3,7 +3,7 @@ services:
 
 env:
   global:
-  - DOCKER_HUB_REPO=turbineanalytics/
+  - DOCKER_HUB_REPO=karuturirs/
   - MODULE=docker-spark-cassandra
 
 before_install:
